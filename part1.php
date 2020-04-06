@@ -8,10 +8,11 @@
     <title>Part 1</title>
 </head>
 <body>
+    <!--links to the relevant worked out questions of Part 1-->
     <a href="p1Question1.php">Question 1<a><br>
     <a href="">Question 2<a><br>
-    <a href="">Question 3<a><br>
+    <a href="p1Question3.php">Question 3<a><br>
     <a href="">Question 4<a><br>
-    <a href="">Question 5<a><br>
+    <a href="p1Question5.php">Question 5<a><br>
 </body>
 </html>
