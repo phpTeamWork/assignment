@@ -8,7 +8,7 @@
     <title>Part 1</title>
 </head>
 <body>
-    <a href="">Question 1<a><br>
+    <a href="p1Question1.php">Question 1<a><br>
     <a href="">Question 2<a><br>
     <a href="">Question 3<a><br>
     <a href="">Question 4<a><br>
