@@ -1,7 +1,7 @@
 <!--Error Handling for the form-->
 <?php
-    require_once __DIR__.'/bootstrap.php';
-    require_once __DIR__.'/utilities.php';
+    require_once __DIR__.'/includes/bootstrap.php';
+    require_once __DIR__.'/includes/dbh.php';
     //Checking if the user clicked on submit and proceeds to error handling 
 
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
@@ -15,11 +15,11 @@
         }
         else
         {
-            $name = clean_input($_POST["name"]); //clean input function retrieved from utilities.php
+            $name = safe($_POST["name"]); //clean input function retrieved from dbh.php
         }   
 
         if(!empty($_POST["email"])){
-            $email = clean_input($_POST["email"]);
+            $email = safe($_POST["email"]);
             //To check if the email is valid
             if(!filter_var($email, FILTER_VALIDATE_EMAIL))
             {
@@ -33,7 +33,7 @@
             $validation['emailError'] = $emailErr;
         }
         if(!empty($_POST["mobno"])){
-            $mobno = clean_input($_POST["mobno"]);
+            $mobno = safe($_POST["mobno"]); //clean input function retrieved from dbh.php
             //To check if only numeric values were entered is_numeric function is used
             if(!is_numeric($mobno)){
                 $mobError = 'Mobile number entered is invalid. Please try again';
@@ -44,14 +44,14 @@
             $validation['mobError'] = $mobError;
         }
         if (!empty($_POST["subject"])) {
-            $subject = clean_input($_POST["subject"]); //clean input function retrieved from utilities.php
+            $subject = safe($_POST["subject"]); //clean input function retrieved from dbh.php
             if(strlen($subject) > 20){ //input longer than 20 characters not allowed in subject field
                 $subjectErr =  "Subject cannot be longer than 20 characters.";
                 $validation['subjectError'] = $subjectErr;
             }
         }
         if (!empty($_POST["message"])) {
-            $message = clean_input($_POST["message"]); //clean input function retrieved from utilities.php
+            $message = safe($_POST["message"]); //clean input function retrieved from dbh.php
             if(strlen($message) > 200){ //input longer than 200 characters not allowed in the message area 
                 $messageErr =  "Message cannot be longer than 200 characters.";
                 $validation['messageError'] = $messageErr;
@@ -88,8 +88,3 @@
         //Render view without validations
         echo $twig->render('contactpage.html');
     }
-   
-?>
-
-
-
