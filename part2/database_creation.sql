@@ -1,3 +1,5 @@
+-- Create user named 'hotwok_customer' with password 'marsalforn' and give permissions only to those in the Data column
+
 CREATE TABLE type (
     id serial PRIMARY KEY,
 	name char(50) NOT NULL
