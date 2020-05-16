@@ -10,8 +10,8 @@
 <body>
     <!--Linking to other pages for testing purposes-->
     <ul>
-        <li><a href="AboutUs.php">About us Page</a></li> 
-        <li><a href="ContactPage.php">Contact Page</a></li>
+        <li><a href="aboutus.php">About us Page</a></li> 
+        <li><a href="contactform.php">Contact Page</a></li>
     </ul>
 </body>
 </html>
