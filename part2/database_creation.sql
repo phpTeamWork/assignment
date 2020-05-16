@@ -1,5 +1,7 @@
 -- Create user named 'hotwok_customer' with password 'marsalforn' and give permissions only to those in the Data column
 
+CREATE DATABASE assignment
+
 CREATE TABLE type (
     id serial PRIMARY KEY,
 	name char(50) NOT NULL
@@ -10,7 +12,7 @@ INSERT INTO `type`(`name`) VALUES ('Starters'), ('Vegetables'), ('Main Course'),
 CREATE TABLE category (
     id serial,
     name char(50) PRIMARY KEY,
-    type bigint UNSIGNED NOT NULL
+    type bigint UNSIGNED NOT NULL,
     FOREIGN KEY (type) REFERENCES type(id)
 )
 
