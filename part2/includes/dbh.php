@@ -1,8 +1,6 @@
 <?php 
 
 /**
- * Database wrapper for a MySQL with PHP tutorial
- * 
  * @copyright Eran Galperin
  * @license MIT License
  * @see http://www.binpress.com/tutorial/using-php-with-mysql-the-right-way/17
@@ -22,7 +20,7 @@ class Db {
         if(!isset(self::$connection)) {
             // Load configuration as an array. Use the actual location of your configuration file
             // Put the configuration file outside of the document root
-            $config = parse_ini_file('./config.ini'); 
+            $config = parse_ini_file(__DIR__.'/config.ini'); 
             self::$connection = new mysqli($config['server'],$config['username'],$config['password'],$config['dbname']);
         }
     
@@ -83,9 +81,16 @@ class Db {
      *
      * @param string $value The value to be quoted and escaped
      * @return string The quoted and escaped string
+     * 
+     * This function has been edited by me to further escape the query, and renamed to safe
      */
-    public function quote($value) {
+    public function safe($value) {
         $connection = $this -> connect();
+        $value = trim($value);
+        //stripslashes(): The stripslashes() function removes backslashes.
+        $value = stripslashes($value);
+        //htmlspecialchars(): Convert special characters to HTML entities.
+        $value = htmlspecialchars($value);
         return "'" . $connection -> real_escape_string($value) . "'";
     }
 }

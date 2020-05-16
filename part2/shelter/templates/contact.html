@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block menu %}
+    {% include 'menu.html' with {'animalTypes': animalTypes} %}   
+{% endblock %}
+
+{% block content %}
+
+    <p>Feel free to use the form below to contact us</p>
+    <span class="validation">{{ validations.pagemessage }}</span>
+    <div class="form-container">
+        <form id="contact" method="POST" action="contact.php">   
+            <div class="row">
+                <div class="col-25">                                     
+                    <label for="Email">Please select query type *</label>
+                </div>
+                <div class="col-75">
+                    <select id="type" name="type">
+                      <option value="complaint">Complaint</option>
+                      <option value="information">Information about a pet</option>
+                      <option value="other">Other</option>
+                    </select>
+                </div>                 
+                <span class="validation">{{ validations.typeError }}</span>
+            </div>
+            <div class="row">
+                <div class="col-25">                                     
+                    <label for="Email">Please enter your email address *</label>
+                </div>
+                <div class="col-75">
+                    <input required value="{{ formvalues.email }}" placeholder="your@email.com" type="email" name="email" id="email">
+                    <span class="validation">{{ validations.emailError }}</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">                                        
+                    <label for="message">Your message *</label>
+                </div>
+                <div class="col-75">
+                    <textarea required maxlength="150" id="message" name="message" placeholder="Write something.." style="height:200px">{{ formvalues.message }}</textarea>
+                    <span class="validation">{{ validations.messageError }}</span>
+                </div>
+            </div>    
+            <div class="row">
+                <input type="submit" value="Submit">
+            </div>                    
+        </form>
+    </div>
+    <p><a href="index.php">Back</a></p>
+{% endblock %}
