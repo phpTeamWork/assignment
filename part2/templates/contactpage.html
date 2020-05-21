@@ -1,0 +1,48 @@
+
+{% block content %}
+      <!--To go back to main page-->
+      <p><a href="index.php">Go Back</a></p>
+      <h3>Contact the Restaurant</h3></br>
+      <h3>Kindly submit a form if you wish to book a table, ask us a question or make a complaint</h3>
+      <!--The form to be filled by the user to contact the restaurant -->
+      <span class="validate">{{validation.pagemessage}}</span>
+      <div class="form-container">
+            <form id="contactform" method="POST" action="contactform.php">
+                  <div class="row">
+                        <br>
+                        <label for="Name">Please Enter Your Name and Surname:</label>
+                        <input required maxlength="50" required value="{{ formvalues.name }}" type="text" name="name" placeholder="Full Name"> 
+                        <span class="validate">{{validation.nameError}}</span>
+                  </div>
+                  <div class="row">
+                        <label for="Name">E-mail Address:</label>
+                        <input required value="{{ formvalues.email }}" placeholder="E-mail Address" type="email" name="email">
+                        <span class="validate">{{validation.emailError}}</span>
+                  </div>
+                  <div class="row">
+                        <label for="Name">Mobile Number:</label>
+                        <input required value="{{ formvalues.mobno }}" placeholder="Mobile Number" tpye="number" name="mobno">
+                        <span class="validate">{{validation.mobError}}</span>
+                  </div>
+                  <div class="row">
+                        <label for="Name">Subject:</label>
+                        <select id="subject" name="subject">
+                           <option value="reservation">Make a Reservation</option>
+                           <option value="question">Ask Us a Question</option>
+                           <option value="complaint">Submit a Complaint</option>
+                           <option value="other">Other</option>   
+                        </select>
+                        <span class="validate">{{validation.subjectError}}</span>
+                  </div>
+                  <div class="row">
+                        <label for="Name">Your Message:</label>
+                        <textarea required maxlength="200"  type="text" name="message" placeholder="Message" style="width: 300px;">{{ formvalues.message }}</textarea>
+                        <span class="validate">{{validation.messageError}}</span>
+                  </div>
+                  <div class="row">
+                        <input type="submit" value="Submit">
+                  </div>
+            </form>
+      </div>
+      
+{% endblock %}

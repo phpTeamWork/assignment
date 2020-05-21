@@ -1,0 +1,13 @@
+<ul class="menu">
+    <li><a href="index.php">Home page</a></li>
+    <li class="dropdown">
+        <a href="fullmenu.html" class="dropbtn">Menu</a>
+        <div class="dropdown-content">
+            {% for type in menuTypes %}
+                <a href="index.php?type={{ type.name }}">{{ type.name }}</a>
+            {% endfor %}
+        </div>
+    </li>
+    <li><a href="contactform.php">Contact</a></li>
+    <li><a href="AboutUs.php">About</a></li>
+</ul>
