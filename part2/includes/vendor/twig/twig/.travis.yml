@@ -1,21 +1,37 @@
 language: php
 
+sudo: false
+
 cache:
     directories:
         - vendor
-        - extra/*/vendor
         - $HOME/.composer/cache/files
 
+<<<<<<< Updated upstream
 env:
     global:
         - SYMFONY_PHPUNIT_REMOVE_RETURN_TYPEHINT=1
         - SYMFONY_PHPUNIT_DISABLE_RESULT_CACHE=1
+=======
+matrix:
+    include:
+        - php: hhvm-stable
+          sudo: required
+          dist: trusty
+        - php: 7.0
+        - php: 7.1
+    allow_failures:
+        - php: hhvm-stable
+    fast_finish: true
+>>>>>>> Stashed changes
 
 before_install:
-    - phpenv config-rm xdebug.ini || return 0
+    - if [[ ! $TRAVIS_PHP_VERSION = hhvm* ]]; then phpenv config-rm xdebug.ini || echo "xdebug not available"; fi
+    - if [[ $TRAVIS_PHP_VERSION = hhvm* ]]; then echo hhvm.php7.all=1 >> /etc/hhvm/php.ini; fi
 
 install:
     - travis_retry composer install
+<<<<<<< Updated upstream
     - ([[ $TRAVIS_PHP_VERSION = 7.0 ]] || cd extra/cssinliner-extra && travis_retry composer install)
     - ([[ $TRAVIS_PHP_VERSION = 7.0 ]] || cd extra/html-extra && travis_retry composer install)
     - ([[ $TRAVIS_PHP_VERSION = 7.0 ]] || cd extra/inky-extra && travis_retry composer install)
@@ -43,3 +59,5 @@ jobs:
         - stage: integration tests
           php: 7.3
           script: ./drupal_test.sh
+=======
+>>>>>>> Stashed changes

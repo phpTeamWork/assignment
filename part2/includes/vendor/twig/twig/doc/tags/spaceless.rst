@@ -1,6 +1,7 @@
 ``spaceless``
 =============
 
+<<<<<<< Updated upstream
 .. tip::
 
     As of Twig 1.38, use the :doc:`spaceless <../filters/spaceless>` filter instead.
@@ -9,6 +10,12 @@ Use the ``spaceless`` tag to remove whitespace *between HTML tags*, not
 whitespace within HTML tags or whitespace in plain text:
 
 .. code-block:: twig
+=======
+Use the ``spaceless`` tag to remove whitespace *between HTML tags*, not
+whitespace within HTML tags or whitespace in plain text:
+
+.. code-block:: jinja
+>>>>>>> Stashed changes
 
     {% spaceless %}
         <div>

@@ -1,5 +1,9 @@
 <!--Error Handling for the form-->
 <?php
+<<<<<<< Updated upstream
+=======
+    require_once __DIR__.'/top_nav.php';
+>>>>>>> Stashed changes
     require_once __DIR__.'/includes/bootstrap.php';
     require_once __DIR__.'/includes/dbh.php';
     //Checking if the user clicked on submit and proceeds to error handling 
@@ -81,10 +85,15 @@
         //Render view with validations
         echo $twig->render('contactpage.html', [ 
             'validation' => $validation, 
-            'formvalues' => $formvalues,] );
+            'formvalues' => $formvalues,
+            'menuTypes'  => $menuTypes] );
     }
     else
     {
         //Render view without validations
+<<<<<<< Updated upstream
         echo $twig->render('contactpage.html');
+=======
+        echo $twig->render('contactpage.html', ['menuTypes' => $menuTypes]);
+>>>>>>> Stashed changes
     }

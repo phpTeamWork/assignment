@@ -9,6 +9,7 @@
  * file that was distributed with this source code.
  */
 
+<<<<<<< Updated upstream
 use Twig\TwigFilter;
 
 /*
@@ -23,4 +24,11 @@ if (false) {
     final class Twig_SimpleFilter extends TwigFilter
     {
     }
+=======
+/**
+ * Empty class for Twig 1.x compatibility.
+ */
+final class Twig_SimpleFilter extends Twig_Filter
+{
+>>>>>>> Stashed changes
 }

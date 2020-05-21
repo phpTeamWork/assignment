@@ -1,5 +1,6 @@
 <?php
 
+<<<<<<< Updated upstream
 use Twig\Extension\OptimizerExtension;
 
 class_exists('Twig\Extension\OptimizerExtension');
@@ -10,5 +11,28 @@ if (\false) {
     /** @deprecated since Twig 2.7, use "Twig\Extension\OptimizerExtension" instead */
     class Twig_Extension_Optimizer extends OptimizerExtension
     {
+=======
+/*
+ * This file is part of Twig.
+ *
+ * (c) 2010 Fabien Potencier
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+final class Twig_Extension_Optimizer extends Twig_Extension
+{
+    private $optimizers;
+
+    public function __construct($optimizers = -1)
+    {
+        $this->optimizers = $optimizers;
+    }
+
+    public function getNodeVisitors()
+    {
+        return array(new Twig_NodeVisitor_Optimizer($this->optimizers));
+>>>>>>> Stashed changes
     }
 }
