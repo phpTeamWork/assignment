@@ -16,11 +16,11 @@
         }
         else
         {
-            $name = safe($_POST["name"]); //clean input function retrieved from dbh.php
+            $name = $db -> safe($_POST["name"]); //clean input function retrieved from dbh.php
         }   
 
         if(!empty($_POST["email"])){
-            $email = safe($_POST["email"]);
+            $email = $db -> safe($_POST["email"]);
             //To check if the email is valid
             if(!filter_var($email, FILTER_VALIDATE_EMAIL))
             {
@@ -34,7 +34,7 @@
             $validation['emailError'] = $emailErr;
         }
         if(!empty($_POST["mobno"])){
-            $mobno = safe($_POST["mobno"]); //clean input function retrieved from dbh.php
+            $mobno = $db -> safe($_POST["mobno"]); //clean input function retrieved from dbh.php
             //To check if only numeric values were entered is_numeric function is used
             if(!is_numeric($mobno)){
                 $mobError = 'Mobile number entered is invalid. Please try again';
@@ -45,14 +45,14 @@
             $validation['mobError'] = $mobError;
         }
         if (!empty($_POST["subject"])) {
-            $subject = safe($_POST["subject"]); //clean input function retrieved from dbh.php
+            $subject = $db -> safe($_POST["subject"]); //clean input function retrieved from dbh.php
             if(strlen($subject) > 20){ //input longer than 20 characters not allowed in subject field
                 $subjectErr =  "Subject cannot be longer than 20 characters.";
                 $validation['subjectError'] = $subjectErr;
             }
         }
         if (!empty($_POST["message"])) {
-            $message = safe($_POST["message"]); //clean input function retrieved from dbh.php
+            $message = $db -> safe($_POST["message"]); //clean input function retrieved from dbh.php
             if(strlen($message) > 200){ //input longer than 200 characters not allowed in the message area 
                 $messageErr =  "Message cannot be longer than 200 characters.";
                 $validation['messageError'] = $messageErr;

@@ -14,7 +14,7 @@ CREATE TABLE category (
     FOREIGN KEY (type) REFERENCES type(id)
 )
 
-INSERT INTO `category`(`name`, `type`) VALUES ('Starters','1'), ('Vegetables','2'), ('Chicken','3'), ('Beef','3'), ('Pork','3'), ('Duck','3'), ('Fish','3'), ('Noodles','3'),('Rice','3'), ('Dessert','4');
+INSERT INTO `category`(`name`, `type`) VALUES ('Starters','1'), ('Vegetables','2'), ('Chicken','3'), ('Beef','3'), ('Pork','3'), ('Duck','3'), ('Fish','3'), ('Noodles','3'),('Rice','3'), ('Dessert','4')
 
 CREATE TABLE menu (
     id serial PRIMARY KEY,
@@ -32,6 +32,7 @@ CREATE TABLE about (
     email char(50) NOT NULL,
     hours char (100) NOT NULL
 )
+
 INSERT INTO `about`(`address`,`telephone`,`email`,`hours`) VALUES ('Triq ir-Rabat, Marsalforn, Ghawdex', '+356 9972 7900', 'hotwok.yu@gmail.com', 'Weekdays from 6pm to 10pm & Weekends from 6pm to 11pm')
 
 
