@@ -1,17 +1,5 @@
 <?php
 
-<<<<<<< Updated upstream
-use Twig\ExtensionSet;
-
-class_exists('Twig\ExtensionSet');
-
-@trigger_error(sprintf('Using the "Twig_ExtensionSet" class is deprecated since Twig version 2.7, use "Twig\ExtensionSet" instead.'), E_USER_DEPRECATED);
-
-if (\false) {
-    /** @deprecated since Twig 2.7, use "Twig\ExtensionSet" instead */
-    class Twig_ExtensionSet extends ExtensionSet
-    {
-=======
 /*
  * This file is part of Twig.
  *
@@ -478,6 +466,5 @@ final class Twig_ExtensionSet
             $this->unaryOperators = array_merge($this->unaryOperators, $operators[0]);
             $this->binaryOperators = array_merge($this->binaryOperators, $operators[1]);
         }
->>>>>>> Stashed changes
     }
 }

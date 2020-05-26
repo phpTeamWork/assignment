@@ -1,17 +1,5 @@
 <?php
 
-<<<<<<< Updated upstream
-use Twig\Compiler;
-
-class_exists('Twig\Compiler');
-
-@trigger_error(sprintf('Using the "Twig_Compiler" class is deprecated since Twig version 2.7, use "Twig\Compiler" instead.'), E_USER_DEPRECATED);
-
-if (\false) {
-    /** @deprecated since Twig 2.7, use "Twig\Compiler" instead */
-    class Twig_Compiler extends Compiler
-    {
-=======
 /*
  * This file is part of Twig.
  *
@@ -246,6 +234,5 @@ class Twig_Compiler
     public function getVarName()
     {
         return sprintf('__internal_%s', hash('sha256', uniqid(mt_rand(), true), false));
->>>>>>> Stashed changes
     }
 }

@@ -6,8 +6,4 @@
     $loader = new Twig_Loader_Filesystem(__DIR__.'/../templates');
 
     //Instantiates our Twig
-<<<<<<< Updated upstream
     $twig = new Twig_Environment($loader);
-=======
-    $twig = new Twig_Environment($loader);
->>>>>>> Stashed changes

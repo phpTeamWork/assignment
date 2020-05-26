@@ -1,17 +1,5 @@
 <?php
 
-<<<<<<< Updated upstream
-use Twig\Node\ForNode;
-
-class_exists('Twig\Node\ForNode');
-
-@trigger_error(sprintf('Using the "Twig_Node_For" class is deprecated since Twig version 2.7, use "Twig\Node\ForNode" instead.'), E_USER_DEPRECATED);
-
-if (\false) {
-    /** @deprecated since Twig 2.7, use "Twig\Node\ForNode" instead */
-    class Twig_Node_For extends ForNode
-    {
-=======
 /*
  * This file is part of Twig.
  *
@@ -119,6 +107,5 @@ class Twig_Node_For extends Twig_Node
 
         // keep the values set in the inner context for variables defined in the outer context
         $compiler->write("\$context = array_intersect_key(\$context, \$_parent) + \$_parent;\n");
->>>>>>> Stashed changes
     }
 }

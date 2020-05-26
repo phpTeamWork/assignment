@@ -1,17 +1,5 @@
 <?php
 
-<<<<<<< Updated upstream
-use Twig\Node\BlockReferenceNode;
-
-class_exists('Twig\Node\BlockReferenceNode');
-
-@trigger_error(sprintf('Using the "Twig_Node_BlockReference" class is deprecated since Twig version 2.7, use "Twig\Node\BlockReferenceNode" instead.'), E_USER_DEPRECATED);
-
-if (\false) {
-    /** @deprecated since Twig 2.7, use "Twig\Node\BlockReferenceNode" instead */
-    class Twig_Node_BlockReference extends BlockReferenceNode
-    {
-=======
 /*
  * This file is part of Twig.
  *
@@ -40,6 +28,5 @@ class Twig_Node_BlockReference extends Twig_Node implements Twig_NodeOutputInter
             ->addDebugInfo($this)
             ->write(sprintf("\$this->displayBlock('%s', \$context, \$blocks);\n", $this->getAttribute('name')))
         ;
->>>>>>> Stashed changes
     }
 }

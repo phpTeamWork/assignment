@@ -1,17 +1,5 @@
 <?php
 
-<<<<<<< Updated upstream
-use Twig\Token;
-
-class_exists('Twig\Token');
-
-@trigger_error(sprintf('Using the "Twig_Token" class is deprecated since Twig version 2.7, use "Twig\Token" instead.'), E_USER_DEPRECATED);
-
-if (\false) {
-    /** @deprecated since Twig 2.7, use "Twig\Token" instead */
-    class Twig_Token extends Token
-    {
-=======
 /*
  * This file is part of Twig.
  *
@@ -211,6 +199,5 @@ final class Twig_Token
             default:
                 throw new LogicException(sprintf('Token of type "%s" does not exist.', $type));
         }
->>>>>>> Stashed changes
     }
 }

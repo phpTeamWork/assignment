@@ -1,17 +1,5 @@
 <?php
 
-<<<<<<< Updated upstream
-use Twig\Extension\ProfilerExtension;
-
-class_exists('Twig\Extension\ProfilerExtension');
-
-@trigger_error(sprintf('Using the "Twig_Extension_Profiler" class is deprecated since Twig version 2.7, use "Twig\Extension\ProfilerExtension" instead.'), E_USER_DEPRECATED);
-
-if (\false) {
-    /** @deprecated since Twig 2.7, use "Twig\Extension\ProfilerExtension" instead */
-    class Twig_Extension_Profiler extends ProfilerExtension
-    {
-=======
 /*
  * This file is part of Twig.
  *
@@ -49,6 +37,5 @@ class Twig_Extension_Profiler extends Twig_Extension
     public function getNodeVisitors()
     {
         return array(new Twig_Profiler_NodeVisitor_Profiler(get_class($this)));
->>>>>>> Stashed changes
     }
 }

@@ -1,17 +1,5 @@
 <?php
 
-<<<<<<< Updated upstream
-use Twig\Node\Expression\Binary\BitwiseOrBinary;
-
-class_exists('Twig\Node\Expression\Binary\BitwiseOrBinary');
-
-@trigger_error(sprintf('Using the "Twig_Node_Expression_Binary_BitwiseOr" class is deprecated since Twig version 2.7, use "Twig\Node\Expression\Binary\BitwiseOrBinary" instead.'), E_USER_DEPRECATED);
-
-if (\false) {
-    /** @deprecated since Twig 2.7, use "Twig\Node\Expression\Binary\BitwiseOrBinary" instead */
-    class Twig_Node_Expression_Binary_BitwiseOr extends BitwiseOrBinary
-    {
-=======
 /*
  * This file is part of Twig.
  *
@@ -26,6 +14,5 @@ class Twig_Node_Expression_Binary_BitwiseOr extends Twig_Node_Expression_Binary
     public function operator(Twig_Compiler $compiler)
     {
         return $compiler->raw('|');
->>>>>>> Stashed changes
     }
 }

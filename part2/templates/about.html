@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block top %}
+    {% include 'top_nav.html' with {'menuTypes': menuTypes} %}   
+{% endblock %}
+
+{% block title%}
+      <title>About the Restaurant</title>
+{% endblock %}
+
+{% block content %}
+    <div class="row"><h1>HOT WOK</h1></div>
+
+        <div class="about-title">About the Restaurant:</div>
+        <div class="about-content"><p>Hot Wok is a restaurant that serves a wide range of Chinese cuisine. Our restaurant is perfect for holding family dinners and events, also offering a take-away service for the island. We have been operating since May 2019 and would like to welcome you to try our delicious dishes!</p></div>
+            
+        <div class="about-title">Our Team:</div>
+        <div class="about-content"><p>Hot Wok is run by a group of friendly locals who will do their best to serve you with the best service on the island! The restaurant is nothing without its amazing team of chefs and waiters who are always ready to serve our customers.</p></div>
+            
+        <!--Info is stored on db-->
+        <div class="about-content2">
+            <h2>Contact Details:</h2>
+            <p>Address: {{about.address}}</p>
+            <p>Telephone: {{about.telephone}}</p>
+            <p>E-mail: {{about.email}}</p>
+            <p>Opening Hours: {{about.hours}}</p>
+        </div>
+            
+{% endblock %}

@@ -1,10 +1,5 @@
 -- Create user named 'hotwok_customer' with password 'marsalforn' and give permissions only to those in the Data column
 
-<<<<<<< Updated upstream
-CREATE DATABASE assignment
-
-=======
->>>>>>> Stashed changes
 CREATE TABLE type (
     id serial PRIMARY KEY,
 	name char(50) NOT NULL
@@ -15,11 +10,7 @@ INSERT INTO `type`(`name`) VALUES ('Starters'), ('Vegetables'), ('Main Course'),
 CREATE TABLE category (
     id serial,
     name char(50) PRIMARY KEY,
-<<<<<<< Updated upstream
-    type bigint UNSIGNED NOT NULL,
-=======
     type bigint UNSIGNED NOT NULL
->>>>>>> Stashed changes
     FOREIGN KEY (type) REFERENCES type(id)
 )
 
@@ -33,3 +24,14 @@ CREATE TABLE menu (
     description text(500),
     FOREIGN KEY (category) REFERENCES category(id)
 )
+
+CREATE TABLE about (
+    id serial PRIMARY KEY,
+	address char(50) NOT NULL,
+    telephone char(50) NOT NULL,
+    email char(50) NOT NULL,
+    hours char (100) NOT NULL
+)
+INSERT INTO `about`(`address`,`telephone`,`email`,`hours`) VALUES ('Triq ir-Rabat, Marsalforn, Ghawdex', '+356 9972 7900', 'hotwok.yu@gmail.com', 'Weekdays from 6pm to 10pm & Weekends from 6pm to 11pm')
+
+

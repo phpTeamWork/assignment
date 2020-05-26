@@ -1,18 +1,5 @@
 <?php
 
-<<<<<<< Updated upstream
-use Twig\Template;
-
-class_exists('Twig\Template');
-
-@trigger_error(sprintf('Using the "Twig_Template" class is deprecated since Twig version 2.7, use "Twig\Template" instead.'), E_USER_DEPRECATED);
-
-if (\false) {
-    /** @deprecated since Twig 2.7, use "Twig\Template" instead */
-    class Twig_Template extends Template
-    {
-    }
-=======
 /*
  * This file is part of Twig.
  *
@@ -429,5 +416,4 @@ abstract class Twig_Template
      * @param array $blocks  An array of blocks to pass to the template
      */
     abstract protected function doDisplay(array $context, array $blocks = array());
->>>>>>> Stashed changes
 }

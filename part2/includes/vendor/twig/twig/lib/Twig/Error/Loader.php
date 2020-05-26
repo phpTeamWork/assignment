@@ -1,17 +1,5 @@
 <?php
 
-<<<<<<< Updated upstream
-use Twig\Error\LoaderError;
-
-class_exists('Twig\Error\LoaderError');
-
-@trigger_error(sprintf('Using the "Twig_Error_Loader" class is deprecated since Twig version 2.7, use "Twig\Error\LoaderError" instead.'), E_USER_DEPRECATED);
-
-if (\false) {
-    /** @deprecated since Twig 2.7, use "Twig\Error\LoaderError" instead */
-    class Twig_Error_Loader extends LoaderError
-    {
-=======
 /*
  * This file is part of Twig.
  *
@@ -46,6 +34,5 @@ class Twig_Error_Loader extends Twig_Error
         }
         $this->appendMessage($message);
         $this->setTemplateLine(false);
->>>>>>> Stashed changes
     }
 }

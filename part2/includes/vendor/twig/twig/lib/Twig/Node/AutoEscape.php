@@ -1,17 +1,5 @@
 <?php
 
-<<<<<<< Updated upstream
-use Twig\Node\AutoEscapeNode;
-
-class_exists('Twig\Node\AutoEscapeNode');
-
-@trigger_error(sprintf('Using the "Twig_Node_AutoEscape" class is deprecated since Twig version 2.7, use "Twig\Node\AutoEscapeNode" instead.'), E_USER_DEPRECATED);
-
-if (\false) {
-    /** @deprecated since Twig 2.7, use "Twig\Node\AutoEscapeNode" instead */
-    class Twig_Node_AutoEscape extends AutoEscapeNode
-    {
-=======
 /*
  * This file is part of Twig.
  *
@@ -42,6 +30,5 @@ class Twig_Node_AutoEscape extends Twig_Node
     public function compile(Twig_Compiler $compiler)
     {
         $compiler->subcompile($this->getNode('body'));
->>>>>>> Stashed changes
     }
 }

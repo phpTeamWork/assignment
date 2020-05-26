@@ -1,17 +1,5 @@
 <?php
 
-<<<<<<< Updated upstream
-use Twig\Loader\FilesystemLoader;
-
-class_exists('Twig\Loader\FilesystemLoader');
-
-@trigger_error(sprintf('Using the "Twig_Loader_Filesystem" class is deprecated since Twig version 2.7, use "Twig\Loader\FilesystemLoader" instead.'), E_USER_DEPRECATED);
-
-if (\false) {
-    /** @deprecated since Twig 2.7, use "Twig\Loader\FilesystemLoader" instead */
-    class Twig_Loader_Filesystem extends FilesystemLoader
-    {
-=======
 /*
  * This file is part of Twig.
  *
@@ -290,6 +278,5 @@ class Twig_Loader_Filesystem implements Twig_LoaderInterface, Twig_ExistsLoaderI
             )
             || null !== parse_url($file, PHP_URL_SCHEME)
         ;
->>>>>>> Stashed changes
     }
 }
