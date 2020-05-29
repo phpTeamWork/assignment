@@ -18,12 +18,11 @@
         {
             $name = $db -> safe($_POST["name"]); //clean input function retrieved from dbh.php
         }   
-
         if(!empty($_POST["email"])){
             $email = $db -> safe($_POST["email"]);
+
             //To check if the email is valid
-            if(!filter_var($email, FILTER_VALIDATE_EMAIL))
-            {
+            if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
             $emailErr = 'E-mail entered is invalid. Please try again';
             $validation['emailError'] = $emailErr;
             }
@@ -36,10 +35,11 @@
         if(!empty($_POST["mobno"])){
             $mobno = $db -> safe($_POST["mobno"]); //clean input function retrieved from dbh.php
             //To check if only numeric values were entered is_numeric function is used
-            if(!is_numeric($mobno)){
-                $mobError = 'Mobile number entered is invalid. Please try again';
-                $validation['mobError'] = $mobError;
+           if(!is_numeric($_POST['mobno'])){
+            $mobError = 'Mobile number entered is invalid. Please try again';
+            $validation['mobError'] = $mobError;
            }
+           
         }else{
             $mobError = "Mobile Number is required";
             $validation['mobError'] = $mobError;

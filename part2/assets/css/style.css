@@ -68,7 +68,6 @@ li.dropdown {
     padding: 20px 30px;
     max-width: calc(100vw - 40px);
     box-sizing: border-box;
-    position: relative;
 }
 .row{
     text-align: center;
@@ -90,6 +89,7 @@ select{
     width: 50%;
     padding: 10px;
     border:1px solid #78788c;
+    resize: none;
 }
 input[type=submit]{
     background-color:#ebeae8;
@@ -103,6 +103,10 @@ input[type=submit]{
 }
 input[type=submit]:hover{
     background-color:white;
+}
+.validate{
+    color: rgb(251, 2, 1);
+    position: absolute;
 }
 
 /* About page styling */
