@@ -1,11 +1,11 @@
 {% extends "layout.html" %}
 
-{% block top %}
-    {% include 'top_nav.html' with {'menuTypes': menuTypes} %}   
+{% block title %}
+      <title>About the Restaurant</title>
 {% endblock %}
 
-{% block title%}
-      <title>About the Restaurant</title>
+{% block top %}
+    {% include 'top_nav.html' with {'menuTypes': menuTypes} %}   
 {% endblock %}
 
 {% block content %}
@@ -26,4 +26,8 @@
             <p>Opening Hours: {{about.hours}}</p>
         </div>
             
+{% endblock %}
+
+{% block bottom %}
+    {% include 'bottom_nav.html' with {'about': about} %}   
 {% endblock %}

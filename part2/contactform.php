@@ -1,6 +1,7 @@
 <!--Error Handling for the form-->
 <?php
     require_once __DIR__.'/top_nav.php';
+    require_once __DIR__.'/bottom_nav.php';
     require_once __DIR__.'/includes/bootstrap.php';
     require_once __DIR__.'/includes/dbh.php';
     //Checking if the user clicked on submit and proceeds to error handling 
@@ -83,11 +84,10 @@
         echo $twig->render('contactpage.html', [ 
             'validation' => $validation, 
             'formvalues' => $formvalues,
-            'menuTypes'  => $menuTypes] );
+            'menuTypes'  => $menuTypes, 'about' => $about] );
     }
     else
     {
         //Render view without validations
-        echo $twig->render('contactpage.html', ['menuTypes' => $menuTypes]);
+        echo $twig->render('contactpage.html', ['menuTypes' => $menuTypes, 'about' => $about]);
     }
-?>

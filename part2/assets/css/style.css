@@ -1,3 +1,20 @@
+body {
+    min-height: 100%;
+    display: flex;
+  flex-direction: column;
+    position: relative;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.content {
+    flex: 1 0 auto;
+}
+
 /* Top navigation bar styles */
 
 ul.menu {
@@ -13,11 +30,19 @@ ul.menu li {
 }
 
 li a, .dropbtn {
+    margin: auto;
     display: inline-block;
     color: white;
-    text-align: center;
-    padding: 14px 16px;
+    text-align: top;
+    padding: 15px 50px;
     text-decoration: none;
+}
+
+.navimg {
+    display: inline;
+    padding-left: 50;
+    padding-right: 50;
+    text-align: center;
 }
 
 li a:hover, .dropdown:hover .dropbtn {
@@ -129,3 +154,13 @@ input[type=submit]:hover{
 }
 
 
+/* Bottom navigation bar styles */
+
+table.bottom {
+    background-color: rgb(0, 0, 0);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: white;
+    flex-shrink: 0;
+}
