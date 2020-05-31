@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+      <title>Our Menu</title>
+{% endblock %}
+
+{% block top %}
+    {% include 'top_nav.html' with {'menuTypes': menuTypes} %}   
+{% endblock %}
+
+{% block content %}
+    <div class="title">
+        <h1>Our Menu</h1>
+    </div>
+    {% for type in types %}
+        <div class="types">
+            <h2><a href="menu.php?type={{ type.name }}">{{ type.name }}</a></h2>
+        </div>
+        {% for item in menuItems %}
+            {% if item.type == type.name%}
+                <div class="card">
+                    <a href="details.php?item={{ item.id }}"><img src="{{ item.image }}" alt="{{ item.name }}" style="width:100%"></a>
+                    <div class="container">
+                        <h3><b>{{ item.name }}</b></h3>
+                        <p class="price">{{ item.price }}</p>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+            
+{% endblock %}
+
+{% block bottom %}
+    {% include 'bottom_nav.html' with {'bottomDetails': bottomDetails} %}
+{% endblock %}

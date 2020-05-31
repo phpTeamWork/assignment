@@ -1,10 +1,10 @@
-<ul class="menu">
+<ul class="top">
     <li><a href="index.php" class="navimg"><img src="assets/images/hotwoklogo.jpg" alt="Hot Wok Logo" width="100" height="100"></a></li>
     <li class="dropdown">
-        <a href="fullmenu.html" class="dropbtn">Menu</a>
+        <a href="menu.php" class="dropbtn">Menu</a>
         <div class="dropdown-content">
             {% for type in menuTypes %}
-                <a href="index.php?type={{ type.name }}">{{ type.name }}</a>
+                <a href="menu.php?type={{ type.name }}">{{ type.name }}</a>
             {% endfor %}
         </div>
     </li>

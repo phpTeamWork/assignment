@@ -84,10 +84,10 @@
         echo $twig->render('contactpage.html', [ 
             'validation' => $validation, 
             'formvalues' => $formvalues,
-            'menuTypes'  => $menuTypes, 'about' => $about] );
+            'menuTypes'  => $menuTypes, 'bottomDetails' => $details] );
     }
     else
     {
         //Render view without validations
-        echo $twig->render('contactpage.html', ['menuTypes' => $menuTypes, 'about' => $about]);
+        echo $twig->render('contactpage.html', ['menuTypes' => $menuTypes, 'bottomDetails' => $details]);
     }

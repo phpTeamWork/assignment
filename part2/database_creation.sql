@@ -20,9 +20,11 @@ CREATE TABLE menu (
     id serial PRIMARY KEY,
     name char(50) NOT NULL,
     category bigint UNSIGNED NOT NULL,
+    type bigint UNSIGNED NOT NULL,
     ingredients text(500) NOT NULL,
     description text(500),
-    FOREIGN KEY (category) REFERENCES category(id)
+    FOREIGN KEY (category) REFERENCES category(id),
+    FOREIGN KEY (type) REFERENCES type(id)
 )
 
 CREATE TABLE about (

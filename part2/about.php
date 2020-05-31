@@ -1,5 +1,6 @@
 <?php
     require_once __DIR__.'/top_nav.php';
+    require_once __DIR__.'/bottom_nav.php';
     require_once __DIR__.'/includes/bootstrap.php';
     require_once __DIR__.'/includes/dbh.php';
 
@@ -16,4 +17,4 @@
     ];
 
     //Render view
-    echo $twig->render('about.html', ['about' => $about, 'menuTypes' => $menuTypes]);
+    echo $twig->render('about.html', ['about' => $about, 'menuTypes' => $menuTypes, 'bottomDetails' => $details]);
