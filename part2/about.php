@@ -5,7 +5,7 @@
 
     //db object
     $db = new Db();
-    $resInfo = $db -> select("SELECT address, telephone, email, hours FROM about");
+    $resInfo = $db -> select("SELECT address, telephone, email, hours, social FROM about");
 
     //finding the info from db about
     $about = [
@@ -13,6 +13,7 @@
         'telephone' => $resInfo[0]['telephone'],
         'email' => $resInfo[0]['email'],
         'hours' => $resInfo[0]['hours'],
+        'social' => $resInfo[0]['social']
     ];
 
     //Render view
