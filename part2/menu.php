@@ -9,13 +9,11 @@
 
     //Render view
     if (empty($_GET["type"])) { //full menu to be displayed, containing all types
-        $allMenuItems = $db -> select("SELECT m.id, m.name, m.price, m.image, t.name as type FROM menu m INNER JOIN type t ON m.type=t.id");
-        //print_r($allMenuItems);
+        $allMenuItems = $db -> select("SELECT m.id, m.name, m.price, m.image, t.name as type, c.name as category FROM menu m INNER JOIN type t ON m.type=t.id INNER JOIN category c ON m.category=c.id");
         $types = $db -> select("SELECT name, id FROM type");
         echo $twig->render('menu.html', ['menuItems' => $allMenuItems, 'types' => $types, 'menuTypes' => $menuTypes, 'bottomDetails' => $details]);
     } else { //only menu items of a certain types are to be displayed
         $type = array(array("name" => $_GET["type"])); //create the same array format as created when all types are present
-        $menuItems = $db -> select("SELECT m.id, m.name, m.price, m.image, t.name as type FROM menu m INNER JOIN type t ON m.type=t.id WHERE t.name='".$type[0]["name"]."'");
-        print_r($menuItems);
+        $menuItems = $db -> select("SELECT m.id, m.name, m.price, m.image, t.name as type, c.name as category FROM menu m INNER JOIN type t ON m.type=t.id INNER JOIN category c ON m.category=c.id WHERE t.name='".$type[0]["name"]."'");
         echo $twig->render('menu.html', ['menuItems' => $menuItems, 'types' => $type, 'menuTypes' => $menuTypes, 'bottomDetails' => $details]);
     }
