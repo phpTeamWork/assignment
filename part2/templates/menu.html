@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block title %}
-      <title>HOT WOK - Menu</title>
+      <title>Our Menu</title>
 {% endblock %}
 
 {% block top %}
@@ -18,23 +18,13 @@
         </div>
         {% for item in menuItems %}
             {% if item.type == type.name%}
-                <!--Anchor to be used in redirect-->
-                <a name="{{ item.id }}"></a>
                 <div class="card">
                     <a href="details.php?item={{ item.id }}"><img src="{{ item.image }}" alt="{{ item.name }}" style="width:100%"></a>
-                    <form class="container" action="edit_favourite.php" method="POST">
-                        <!--Send category to redirect back to anchor-->
-                        <input type=hidden name=id value="{{ item.id }}">
-                        <!--Check if item is favourited or not to display different icon-->
-                        {% if item.id in favourites %}
-                            <button class=favourites name="favourite" value="rem{{ item.id }}"><img src=assets/images/favourite_fill.png alt="Add to favourites" style="width:30%"></button>
-                        {% else %}
-                            <button class=favourites name="favourite" value="add{{ item.id }}"><img src=assets/images/favourite_outline.png alt="Remove from favourites" style="width:30%"></button>
-                        {% endif %}
-                        <h3 style="height: 60px"><b>{{ item.name }}</b></h3>
+                    <div class="container">
+                        <h3><b>{{ item.name }}</b></h3>
                         <h4>({{ item.category }})</h4>
                         <p class="price">{{ item.price }}</p>
-                    </form>
+                    </div>
                 </div>
             {% endif %}
         {% endfor %}

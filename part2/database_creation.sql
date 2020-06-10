@@ -66,3 +66,5 @@ CREATE TABLE about (
     hours char (100) NOT NULL
     social char(50) NOT NULL,
 )
+INSERT INTO `about`(`name`,`description`, `address`, `telephone`, `email`, `hours`, `social`) VALUES 
+('HOT WOK', 'Chinese Restaurant', 'Triq ir-Rabat, Marsalforn, Ghawdex','+356 9972 7900', 'hotwok.yu@gmail.com', 'Weekdays from 6pm to 10pm & Weekends from 6pm to 11pm', 'Facebook: https://www.facebook.com/hotwok666/')
