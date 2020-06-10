@@ -6,4 +6,4 @@
 
 
     //Render view
-    echo $twig->render('index.html', ['menuTypes' => $menuTypes, 'about' => $about]);
+    echo $twig->render('index.html', ['menuTypes' => $menuTypes, 'bottomDetails' => $details]);
