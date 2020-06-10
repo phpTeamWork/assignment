@@ -4,16 +4,19 @@
     require_once __DIR__.'/includes/bootstrap.php';
     require_once __DIR__.'/includes/dbh.php';
 
-    //db object
-    $db = new Db();
-
-    //Render view
+    //Check if full menu or one type
     if (empty($_GET["type"])) { //full menu to be displayed, containing all types
-        $allMenuItems = $db -> select("SELECT m.id, m.name, m.price, m.image, t.name as type, c.name as category FROM menu m INNER JOIN type t ON m.type=t.id INNER JOIN category c ON m.category=c.id");
-        $types = $db -> select("SELECT name, id FROM type");
-        echo $twig->render('menu.html', ['menuItems' => $allMenuItems, 'types' => $types, 'menuTypes' => $menuTypes, 'bottomDetails' => $details]);
-    } else { //only menu items of a certain types are to be displayed
+        $menuItems = $db -> select("SELECT m.id, m.name, m.price, m.image, t.name as type, c.name as category FROM menu m INNER JOIN type t ON m.type=t.id INNER JOIN category c ON m.category=c.id");
+        $type = $db -> select("SELECT name, id FROM type");
+    } else { //only menu items of a certain type are to be displayed
         $type = array(array("name" => $_GET["type"])); //create the same array format as created when all types are present
         $menuItems = $db -> select("SELECT m.id, m.name, m.price, m.image, t.name as type, c.name as category FROM menu m INNER JOIN type t ON m.type=t.id INNER JOIN category c ON m.category=c.id WHERE t.name='".$type[0]["name"]."'");
-        echo $twig->render('menu.html', ['menuItems' => $menuItems, 'types' => $type, 'menuTypes' => $menuTypes, 'bottomDetails' => $details]);
     }
+
+    if(!isset($_SESSION['favourites'])) { //creating array only once
+        $_SESSION['favourites'] = array();
+        echo "done";
+    }
+
+    //Render view
+    echo $twig->render('menu.html', ['menuItems' => $menuItems, 'types' => $type, 'menuTypes' => $menuTypes, 'bottomDetails' => $details, 'favourites' => $_SESSION['favourites']]);
