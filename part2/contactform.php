@@ -4,6 +4,7 @@
     require_once __DIR__.'/bottom_nav.php';
     require_once __DIR__.'/includes/bootstrap.php';
     require_once __DIR__.'/includes/dbh.php';
+    require_once __DIR__.'/mailer.php';
     //Checking if the user clicked on submit and proceeds to error handling 
 
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
@@ -69,6 +70,7 @@
         {
             //Form values are reset to empty once form is completed successfully
             $formvalues = [];
+            sendEmail($name, $email, $mobno, $subject, $message);
             $validation['pagemessage'] = "Thank you. We have received your submission and should reply shortly.";
         }
         else
