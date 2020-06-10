@@ -1,6 +1,4 @@
-<?php
-
-session_start(); //added by me in order to have a running session in all of the pages
+<?php 
 
 /**
  * @copyright Eran Galperin
