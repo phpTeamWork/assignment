@@ -5,6 +5,5 @@
     require_once __DIR__.'/bottom_nav.php';
 
 
-    
-echo $twig->render('index.html', ['menuTypes' => $menuTypes, 'bottomDetails' => $details]);
-
+    //Render view
+    echo $twig->render('index.html', ['menuTypes' => $menuTypes, 'bottomDetails' => $details]);

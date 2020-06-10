@@ -4,8 +4,6 @@
     require_once __DIR__.'/includes/bootstrap.php';
     require_once __DIR__.'/includes/dbh.php';
 
-    //db object
-    $db = new Db();
     $resInfo = $db -> select("SELECT address, telephone, email, hours, social FROM about");
 
     //finding the info from db about
