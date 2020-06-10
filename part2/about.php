@@ -10,11 +10,11 @@
 
     //finding the info from db about
     $about = [
-        'address' => $resInfo[0]['address'],
+        'address'   => $resInfo[0]['address'],
         'telephone' => $resInfo[0]['telephone'],
-        'email' => $resInfo[0]['email'],
-        'hours' => $resInfo[0]['hours'],
-        'social' => $resInfo[0]['social']
+        'email'     => $resInfo[0]['email'],
+        'hours'     => $resInfo[0]['hours'],
+        'social'    => $resInfo[0]['social']
     ];
 
     //Render view
