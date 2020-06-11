@@ -107,9 +107,11 @@ li a, .dropbtn {
 }
 
 .navimg {
-    display: inline;
+    display: inline-block;
     padding-left: 50;
     padding-right: 50;
+    padding-top: 0;
+    padding-bottom: 0;
     text-align: center;
 }
 
