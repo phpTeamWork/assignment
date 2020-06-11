@@ -359,13 +359,13 @@ footer a:hover {
     left:50%;
 }
 .index-1 p{
-    position:  absolute;
-    top:25%;
+    position:absolute;
+    top:20%;
     left:25%;
     text-align:center;
 }
 .index-1 button{
-    top:35%;
+    top:29%;
     left:60%;
     position: absolute;
     background-color: rgb(251, 2, 1);
