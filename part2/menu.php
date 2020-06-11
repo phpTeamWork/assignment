@@ -15,7 +15,6 @@
 
     if(!isset($_SESSION['favourites'])) { //creating array only once
         $_SESSION['favourites'] = array();
-        echo "done";
     }
 
     //Render view

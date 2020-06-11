@@ -70,7 +70,7 @@
         {
             //Form values are reset to empty once form is completed successfully
             $formvalues = [];
-            sendEmail($name, $email, $mobno, $subject, $message);
+            sendEmail($name, $email, $mobno, $subject, $message); //sending details via email
             $validation['pagemessage'] = "Thank you. We have received your submission and should reply shortly.";
         }
         else

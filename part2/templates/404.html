@@ -9,9 +9,12 @@
 {% endblock %}
 
 {% block content %}
-  
+<!--Basic page if a user has enetered a page and been caught by our exception tracking using if-statements-->
+<section class="error404">
+    <h3>This page that you're looking for seems to be out of Marsalforn!</h3>
+</section>
 {% endblock %}
 
 {% block bottom %}
-    {% include 'bottom_nav.html' with {'bottomDetails': bottomDetails} %}   
+    {% include 'bottom_nav.html' with {'bottomDetails': bottomDetails, 'menuItems': menuItems} %}   
 {% endblock %}

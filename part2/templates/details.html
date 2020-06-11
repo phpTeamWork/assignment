@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+      <title>HOT WOK - Menu</title>
+{% endblock %}
+
+{% block top %}
+    {% include 'top_nav.html' with {'menuTypes': menuTypes} %}   
+{% endblock %}
+
+{% block content %}
+    <header class="title">
+        <h1>{{itemDetails.0.name}}</h1>
+    </header>
+    <ul class="description">
+        <!--Displaying all details relating to this current item-->
+        <li><img src="{{itemDetails.0.image}}" alt="{{itemDetails.0.name}} &nbsp;image"></li>
+        <form class="container" action="edit_favourite.php" method="POST">
+            <!--Check if item is favourited or not to display different icon-->
+            {% if itemDetails.0.id in favourites %}
+                <li><button class=details name="favourite" value="rem{{ itemDetails.0.id }}"><img src=assets/images/favourite_fill.png alt="Add to favourites" style="width:30%"></button></li>
+            {% else %}
+                <li><button class=details name="favourite" value="add{{ itemDetails.0.id }}"><img src=assets/images/favourite_outline.png alt="Remove from favourites" style="width:30%"></button></li>
+            {% endif %}
+        </form>
+        <li><p><b>Description:&nbsp;</b>{{itemDetails.0.description}}</p></li>
+        <li><p><b>Ingredients:&nbsp;</b>{{itemDetails.0.ingredients}}</p></li>
+        <li><p><b>Category:&nbsp;</b>{{itemDetails.0.category}}</p></li>
+        <li><p><b>Type:&nbsp;</b><a class=details href="menu.php?type={{itemDetails.0.type}}">{{itemDetails.0.type}}</p></a></li>
+        <li><p><b>Price:&nbsp;</b>{{itemDetails.0.price}}</p></li>
+    </ul>
+{% endblock %}
+
+{% block bottom %}
+    {% include 'bottom_nav.html' with {'bottomDetails': bottomDetails, 'menuItems': menuItems} %}   
+{% endblock %}

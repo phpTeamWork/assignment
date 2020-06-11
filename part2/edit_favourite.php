@@ -17,5 +17,5 @@
         }
         header ("Location: menu.php#".$_POST['id']);
     } else {
-        echo $twig->render('404.html');
+        echo $twig->render('404.html', ['menuTypes' => $menuTypes, 'bottomDetails' => $details]);
     }

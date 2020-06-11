@@ -3,4 +3,5 @@
 
     //Get the db object
     $db = new Db();
+
     $menuTypes = $db -> select("SELECT name FROM type");

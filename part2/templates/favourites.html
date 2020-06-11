@@ -9,10 +9,10 @@
 {% endblock %}
 
 {% block content %}
-    <div class="title">
+    <header class="title">
         <h1>My favourite food</h1>
         <h3>Your favourite choices from our restaurant, all in one place!<br>Simply click on the heart icon to remove an item from this list</h3>
-    </div>
+    </header>
     <!--Check if item there are any favourites at all-->
     {% if favouriteItems.1 is empty %}
         <div class="empty">
@@ -24,12 +24,7 @@
                 <div class="card">
                     <a href="details.php?item={{ item.id }}"><img src="{{ item.image }}" alt="{{ item.name }}" style="width:100%"></a>
                     <form class="container" action="edit_favourite.php" method="POST">
-                        <!--Check if item is favourited or not to display different icon-->
-                        {% if item.id in favourites %}
-                            <button class=favourites name="favourite" value="rem{{ item.id }}"><img src=assets/images/favourite_fill.png alt="Add to favourites" style="width:30%"></button>
-                        {% else %}
-                            <button class=favourites name="favourite" value="add{{ item.id }}"><img src=assets/images/favourite_outline.png alt="Remove from favourites" style="width:30%"></button>
-                        {% endif %}
+                        <button class=favourites name="favourite" value="rem{{ item.id }}"><img src=assets/images/favourite_fill.png alt="Add to favourites" style="width:30%"></button>
                         <h3 style="height: 40px"><b>{{ item.name }}</b></h3>
                         <h4>({{ item.category }})</h4>
                         <p class="price">{{ item.price }}</p>
@@ -37,10 +32,30 @@
                 </div>
             {% endfor %}
         {% endfor %}
-        <a href="mail.php"><h4>Email this list!</h4></a>
+        <!--Email functionality-->
+        <form class="emailFavourites" action="mail.php" method="POST">
+            <br><br>
+            <h3>Would you like to recieve your favourite dishes by email?</h3>
+            <label for="email">Enter your email: </label>
+            <input type="email" name="email"><br>
+            {% set counter = 0 %}
+            {% for item2 in favouriteItems %}
+                {% for item in item2 %}
+                    {% set counter = counter + 1 %}<!--For every item on this page, all of its details are being sent via POST-->
+                    <input type="hidden" name="name {{counter}}" value="{{item.name}}">
+                    <input type="hidden" name="category {{counter}}" value="{{item.category}}">
+                    <input type="hidden" name="type {{counter}}" value="{{item.type}}">
+                    <input type="hidden" name="ingredients {{counter}}" value="{{item.ingredients}}">
+                    <input type="hidden" name="description {{counter}}" value="{{item.description}}">
+                    <input type="hidden" name="price {{counter}}" value="{{item.price}}">
+                {% endfor %}
+            {% endfor %}
+            <input type="hidden" name="count" value="{{counter}}">
+            <button type="submit">Send email</button>
+        </form>
     {% endif %}
 {% endblock %}
 
 {% block bottom %}
-    {% include 'bottom_nav.html' with {'bottomDetails': bottomDetails} %}
+    {% include 'bottom_nav.html' with {'bottomDetails': bottomDetails, 'menuItems': menuItems} %}
 {% endblock %}
