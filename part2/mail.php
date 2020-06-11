@@ -19,5 +19,5 @@
         }
         $body = $body."\n\nFeel free to continue browsing our extensive menu from our site!\n\nHOT WOK"; //conclusion
         sendFavourites($email, $body);
-        header("Location: favourites.php");
+        header("Location: favourites.php?email=sent");
     }

@@ -15,7 +15,6 @@
             <h3>Kindly submit this form if you wish to book a table, ask us a question or make a complaint</h3>
       </header>
       <!--The form to be filled by the user to contact the restaurant -->
-      <span class="validate">{{validation.pagemessage}}</span>
       <div class="form-container">
             <form id="contactform" method="POST" action="contactform.php">
                   <div class="col1"><label for="Name">Full Name:</label></div>
@@ -52,6 +51,7 @@
                         <input type="submit" value="Submit">
                   </div>
             </form>
+            <span class="validate">{{validation.pagemessage}}</span>
       </div>
       
 {% endblock %}
