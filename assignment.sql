@@ -1,33 +1,98 @@
--- Create user named 'hotwok_customer' with password 'marsalforn' and give permissions only to those in the Data column
+-- phpMyAdmin SQL Dump
+-- version 5.0.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.3
 
-CREATE TABLE type (
-    id serial PRIMARY KEY,
-	name char(50) NOT NULL
-)
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
 
-INSERT INTO `type`(`name`) VALUES ('Starters'), ('Vegetables'), ('Main Course'), ('Dessert')
 
-CREATE TABLE category (
-    id serial,
-    name char(50) PRIMARY KEY,
-    type bigint UNSIGNED NOT NULL
-    FOREIGN KEY (type) REFERENCES type(id)
-)
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
-INSERT INTO `category`(`name`, `type`) VALUES ('Starters','1'), ('Vegetables','2'), ('Chicken','3'), ('Beef','3'), ('Pork','3'), ('Duck','3'), ('Fish','3'), ('Noodles','3'),('Rice','3'), ('Dessert','4')
+--
+-- Database: `assignment`
+--
 
-CREATE TABLE menu (
-    id serial PRIMARY KEY,
-    name char(50) NOT NULL,
-    category bigint UNSIGNED NOT NULL,
-    type bigint UNSIGNED NOT NULL,
-    ingredients text(500) NOT NULL,
-    description text(500),
-    price char(10) NOT NULL,
-    image text(500) NOT NULL,
-    FOREIGN KEY (category) REFERENCES category(id),
-    FOREIGN KEY (type) REFERENCES type(id)
-)
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `about`
+--
+
+CREATE TABLE `about` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` char(50) NOT NULL,
+  `description` char(50) NOT NULL,
+  `address` char(50) NOT NULL,
+  `telephone` char(50) NOT NULL,
+  `email` char(50) NOT NULL,
+  `hours` char(100) NOT NULL,
+  `social` char(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `about`
+--
+
+INSERT INTO `about` (`id`, `name`, `description`, `address`, `telephone`, `email`, `hours`, `social`) VALUES
+(1, 'HOT WOK', 'Chinese Restaurant', 'Triq ir-Rabat, Marsalforn, Ghawdex', '+356 9972 7900', 'hotwok.yu@gmail.com', 'Weekdays from 6pm to 10pm & Weekends from 6pm to 11pm', 'Facebook: https://www.facebook.com/hotwok666/');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `category`
+--
+
+CREATE TABLE `category` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` char(50) NOT NULL,
+  `type` bigint(20) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`id`, `name`, `type`) VALUES
+(1, 'Beef', 3),
+(2, 'Chicken', 3),
+(3, 'Dessert', 4),
+(4, 'Duck', 3),
+(5, 'Fish', 3),
+(6, 'Noodles', 3),
+(7, 'Pork', 3),
+(8, 'Rice', 3),
+(9, 'Starters', 1),
+(10, 'Vegetables', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `menu`
+--
+
+CREATE TABLE `menu` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` char(50) NOT NULL,
+  `category` bigint(20) UNSIGNED NOT NULL,
+  `type` bigint(20) UNSIGNED NOT NULL,
+  `ingredients` text NOT NULL,
+  `description` text DEFAULT NULL,
+  `price` char(10) NOT NULL,
+  `image` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `menu`
+--
 
 INSERT INTO `menu` (`id`, `name`, `category`, `type`, `ingredients`, `description`, `price`, `image`) VALUES
 (1, 'Seaweed Egg soup', 9, 1, 'Seaweed, Sesame Oil, Eggs, Chopped Scallions', 'A healthy home-style Chinese soup served hot', '€3.65', 'assets/images/menu/seaweed-egg-soup.jpg'),
@@ -54,15 +119,107 @@ INSERT INTO `menu` (`id`, `name`, `category`, `type`, `ingredients`, `descriptio
 (22, 'Beef Fried Rice', 8, 3, 'Beef pieces, Carrots, Garlic, Peas, Fried rice, Soy sauce, Oyster sauce', 'Fried rice mixed with beef pieces, carrots and peas cooked in oyster sauce and soy sauce', '€3.95', 'assets/images/menu/beef-fried-rice.jpg'),
 (23, 'Seafood fried rice', 8, 3, 'Seafood mix, Fried rice, Oyster sauce, Garlic', 'Fried rice with a mixture of different seafood cooked in oyster sauce', '€8.95', 'assets/images/menu/seafood-fried-rice.jpg'),
 (24, 'Fried Banana Ice Cream', 3, 4, 'Sliced bananas, Cinnamon, Vanilla ice cream', 'Our most recommended desert is the warm fried banana ice cream topped with some cinnamon spice', '€2.95', 'assets/images/menu/fried-banana-ice-cream.jpg'),
-(25, 'Fried Pineapple Ice Cream', 3, 4, 'Sliced pineapple, Vanilla ice cream, Amaretto, Honey', 'The fried pineapple ice cream is topped with delicious Amaretto liqueur', '€2.95', 'assets/images/menu/fried-pineapple-ice-cream.jpg')
+(25, 'Fried Pineapple Ice Cream', 3, 4, 'Sliced pineapple, Vanilla ice cream, Amaretto, Honey', 'The fried pineapple ice cream is topped with delicious Amaretto liqueur', '€2.95', 'assets/images/menu/fried-pineapple-ice-cream.jpg');
 
-CREATE TABLE about (
-    id serial PRIMARY KEY,
-    name char(50) NOT NULL,
-    description char(50) NOT NULL,
-	address char(50) NOT NULL,
-    telephone char(50) NOT NULL,
-    email char(50) NOT NULL,
-    hours char (100) NOT NULL
-    social char(50) NOT NULL,
-)
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `type`
+--
+
+CREATE TABLE `type` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` char(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `type`
+--
+
+INSERT INTO `type` (`id`, `name`) VALUES
+(1, 'Starters'),
+(2, 'Vegetables'),
+(3, 'Main Course'),
+(4, 'Dessert');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `about`
+--
+ALTER TABLE `about`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `category`
+--
+ALTER TABLE `category`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id` (`id`),
+  ADD KEY `type` (`type`);
+
+--
+-- Indexes for table `menu`
+--
+ALTER TABLE `menu`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `category` (`category`),
+  ADD KEY `type` (`type`);
+
+--
+-- Indexes for table `type`
+--
+ALTER TABLE `type`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `about`
+--
+ALTER TABLE `about`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `category`
+--
+ALTER TABLE `category`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `menu`
+--
+ALTER TABLE `menu`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+
+--
+-- AUTO_INCREMENT for table `type`
+--
+ALTER TABLE `type`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `category`
+--
+ALTER TABLE `category`
+  ADD CONSTRAINT `category_ibfk_1` FOREIGN KEY (`type`) REFERENCES `type` (`id`);
+
+--
+-- Constraints for table `menu`
+--
+ALTER TABLE `menu`
+  ADD CONSTRAINT `menu_ibfk_1` FOREIGN KEY (`category`) REFERENCES `category` (`id`),
+  ADD CONSTRAINT `menu_ibfk_2` FOREIGN KEY (`type`) REFERENCES `type` (`id`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -1,27 +1,16 @@
-<table class=bottom>
-    <tr>
-        <td colspan="2">{{bottomDetails.address}}</td>
-        <td colspan="2">{{bottomDetails.hours}}</td>
-    </tr>
-    <tr>
-        <td colspan="4"></td>
-    </tr>
-    <tr>
-        <td colspan="4"></td>
-    </tr>
-    <tr>
-        <td colspan="4"></td>
-    </tr>
-    <tr>
-        <td colspan="4"></td>
-    </tr>
-    <tr>
-        <td colspan="4"></td>
-    </tr>
-    <tr>
-        <td colspan="4">Thank you for visiting!</td>
-    </tr>
-    <tr>
-        <td colspan="4">Hot Wok 2020</td>
-    </tr>
-</table>
+<footer class=footer>
+    <ul>
+        <li><a href="{{bottomDetails.social}}"><img src="assets/images/facebook_icon.png" width=50px></li></a>
+        <li>{{bottomDetails.address}}</li>
+        <li>{{bottomDetails.hours}}</li>
+    </ul>
+    <br>
+    <ul>
+        {% for type in menuTypes %}
+            <a class = footer href="menu.php?type={{ type.name }}"><li>{{ type.name }}</li></a>
+        {% endfor %}
+    </ul>
+    <br>
+    <p>Thank you for visiting!</p>
+    <p>Hot Wok 2020</p>
+</footer>

@@ -10,10 +10,10 @@
 
 {% block content %}
       <!--To go back to main page-->
-      <div class="form-content">
-            <h3>Contact the Restaurant</h3></br>
-            <h3>Kindly submit a form if you wish to book a table, ask us a question or make a complaint</h3>
-      </div>
+      <header class="title">
+            <h1>Contact Us</h1>
+            <h3>Kindly submit this form if you wish to book a table, ask us a question or make a complaint</h3>
+      </header>
       <!--The form to be filled by the user to contact the restaurant -->
       <span class="validate">{{validation.pagemessage}}</span>
       <div class="form-container">
@@ -57,5 +57,5 @@
 {% endblock %}
 
 {% block bottom %}
-    {% include 'bottom_nav.html' with {'bottomDetails': bottomDetails} %}   
+    {% include 'bottom_nav.html' with {'bottomDetails': bottomDetails, 'menuItems': menuItems} %}   
 {% endblock %}

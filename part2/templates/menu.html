@@ -9,9 +9,9 @@
 {% endblock %}
 
 {% block content %}
-    <div class="title">
+    <header class="title">
         <h1>Our Menu</h1>
-    </div>
+    </header>
     {% for type in types %}
         <div class="types">
             <h2><a href="menu.php?type={{ type.name }}">{{ type.name }}</a></h2>
@@ -43,5 +43,5 @@
 {% endblock %}
 
 {% block bottom %}
-    {% include 'bottom_nav.html' with {'bottomDetails': bottomDetails} %}
+    {% include 'bottom_nav.html' with {'bottomDetails': bottomDetails, 'menuItems': menuItems} %}
 {% endblock %}
