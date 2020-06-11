@@ -287,7 +287,8 @@ input[type=submit]:hover{
 .validate{
     color: rgb(251, 2, 1);
     position: absolute;
-    top: 17%;
+    top: 24%;
+    display: block;
 }
 
 /* About page styling */
