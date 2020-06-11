@@ -90,6 +90,12 @@ li.dropdown {
     background-color: #062f4f;
     color: white;
 }
+.title a:link{
+    color:black;
+}
+.title a:visited{
+    color:white;
+}
 
 .types {
     background-color: rgb(94, 94, 94);
@@ -212,6 +218,7 @@ input[type=submit]:hover{
 .validate{
     color: rgb(251, 2, 1);
     position: absolute;
+    top: 17%;
 }
 
 /* About page styling */
@@ -246,21 +253,41 @@ table.bottom {
 }
 
 /* Index Page Styling */
-.index-row{
-    padding-top: 10px;
-    padding-bottom: 10px;
-    text-align: center;
-    top: 10%;
-    background-color: rgb(250, 167, 167);
-}
-.index-row a:link{
-    color:black;
-}
-.index-row a:visited{
-    color:black;
-}
-.index-content{
+.index-2{
     box-sizing: content-box;
     border-radius: 0%;
+}
+.index-1 h3{
+    text-decoration: underline;
+    position:  absolute;
+    top:20%;
+    left:50%;
+}
+.index-1 p{
+    position:  absolute;
+    top:25%;
+    left:25%;
+    text-align:center;
+}
+.index-1 button{
+    top:35%;
+    left:60%;
+    position: absolute;
+    background-color: rgb(251, 2, 1);
+    color:white;
+    display: inline-block;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 2px;
+}
+.index-1 button:hover{
+    background-color: white;
+    color: rgb(251, 2, 1);
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius:2px;
+    border: 1px solid;
+    border-color:  rgb(251, 2, 1);
+    cursor: pointer;
 }
   
